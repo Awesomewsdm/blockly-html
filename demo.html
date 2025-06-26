@@ -1,17 +1,18 @@
 <html>
   <head>
     <title></title>
-    <meta content="">
-    <meta charset="utf-8">
+    <meta content="" />
+    <meta charset="utf-8" />
     <style>
-      html, body {
+      html,
+      body {
         padding: 0;
         margin: 0;
       }
 
       #container {
-        width:100vw;
-        height:100vh;
+        width: 100vw;
+        height: 100vh;
         display: -ms-grid;
         display: grid;
         -ms-grid-columns: 50% 50%;
@@ -25,46 +26,100 @@
           "blockly     code";
       }
 
-      #blocklyArea  {grid-area: blockly; -ms-grid-row:1;-ms-grid-column:1; -ms-grid-row-span:4;}
-      #menubar      {background: #a9d0f7; grid-area: menubar; font-family: sans-serif; font-size: 18px; padding: 5px 10px; display: -ms-grid; display: grid; grid-template-columns: auto 36% auto; -ms-grid-row:1;-ms-grid-column:2; -ms-grid-columns: 32% 36% 32%; }
-      #title        {grid-area: title; width: 100%; background-color: #444; color:white; text-align:center; font-size: 20px; font-family: sans-serif; padding-top: 5px; -ms-grid-row:2;-ms-grid-column:2;}
-      #websiteFrame {grid-area: website; border: 5px solid #444;  -ms-grid-row:3;-ms-grid-column:2;}
-      #sourcecode   {grid-area: code; border: 5px solid lightgray;overflow: scroll; margin:0px;  -ms-grid-row:4;-ms-grid-column:2;}
+      #blocklyArea {
+        grid-area: blockly;
+        -ms-grid-row: 1;
+        -ms-grid-column: 1;
+        -ms-grid-row-span: 4;
+      }
+      #menubar {
+        background: #a9d0f7;
+        grid-area: menubar;
+        font-family: sans-serif;
+        font-size: 18px;
+        padding: 5px 10px;
+        display: -ms-grid;
+        display: grid;
+        grid-template-columns: auto 36% auto;
+        -ms-grid-row: 1;
+        -ms-grid-column: 2;
+        -ms-grid-columns: 32% 36% 32%;
+      }
+      #title {
+        grid-area: title;
+        width: 100%;
+        background-color: #444;
+        color: white;
+        text-align: center;
+        font-size: 20px;
+        font-family: sans-serif;
+        padding-top: 5px;
+        -ms-grid-row: 2;
+        -ms-grid-column: 2;
+      }
+      #websiteFrame {
+        grid-area: website;
+        border: 5px solid #444;
+        -ms-grid-row: 3;
+        -ms-grid-column: 2;
+      }
+      #sourcecode {
+        grid-area: code;
+        border: 5px solid lightgray;
+        overflow: scroll;
+        margin: 0px;
+        -ms-grid-row: 4;
+        -ms-grid-column: 2;
+      }
 
-      #website {width: calc(100% - 5px);height: calc(100% - 5px);}
-
+      #website {
+        width: calc(100% - 5px);
+        height: calc(100% - 5px);
+      }
 
       /* Edge hack, God I hate this browser */
       _:-ms-lang(x),
       #container {
-        width:98vw;
+        width: 98vw;
       }
     </style>
     <script src="blockly/blockly_compressed.js"></script>
-    <script src="blockly/msg/js/en.js"></script>
-
+    <script src="blockly/blocks_compressed.js"></script>
+    <!-- This should come before your custom blocks -->
+    <script src="blockly/javascript_compressed.js"></script>
+    <script src="blockly/en.js"></script>
     <script src="en.js"></script>
     <script src="html_generators.js"></script>
     <script src="html_blocks.js"></script>
-
-    <!-- For JS-Blocks only -->
-    <script src="blockly/blocks_compressed.js"></script>
-    <script src="blockly/javascript_compressed.js"></script>
   </head>
   <body>
     <div id="container">
       <div id="blocklyArea"></div>
       <div id="menubar">
-        <div><span id="saveText">💾 Save blocks:</span> <input type="button" value="Save" id="saveButton" /></div>
-        <div><span id="loadText">📂 Load blocks:</span> <input type="file" id="fileButton" style="max-width:200px" /></div>
-        <div><span id="exportText">📄 Export webpage as HTML:</span> <input type="button" value="Export" id="exportButton" /></div>
+        <div>
+          <span id="saveText">💾 Save blocks:</span>
+          <input type="button" value="Save" id="saveButton" />
+        </div>
+        <div>
+          <span id="loadText">📂 Loaded blocks:</span>
+          <input type="file" id="fileButton" style="max-width: 200px" />
+        </div>
+        <div>
+          <span id="exportText">📄 Export webpage as HTML:</span>
+          <input type="button" value="Export" id="exportButton" />
+        </div>
         <script>
-          if (typeof(Msg) == "object" && Msg.buttons) {
-            document.getElementById("saveText").textContent   = Msg.buttons.save.desc;
-            document.getElementById("saveButton").textContent = Msg.buttons.save.button;
-            document.getElementById("loadText").textContent   = Msg.buttons.load.desc;
-            document.getElementById("exportText").value       = Msg.buttons.export.desc;
-            document.getElementById("exportButton").value     = Msg.buttons.export.button;
+          if (typeof Msg == "object" && Msg.buttons) {
+            document.getElementById("saveText").textContent =
+              Msg.buttons.save.desc;
+            document.getElementById("saveButton").textContent =
+              Msg.buttons.save.button;
+            document.getElementById("loadText").textContent =
+              Msg.buttons.load.desc;
+            document.getElementById("exportText").value =
+              Msg.buttons.export.desc;
+            document.getElementById("exportButton").value =
+              Msg.buttons.export.button;
           }
         </script>
       </div>
@@ -73,7 +128,11 @@
       <pre id="sourcecode">sum contnent</pre>
     </div>
 
-    <xml xmlns="https://developers.google.com/blockly/xml" id="toolbox" style="display: none">
+    <xml
+      xmlns="https://developers.google.com/blockly/xml"
+      id="toolbox"
+      style="display: none"
+    >
       <category name="html" expanded="true">
         <category name="baseframe" colour="#a55b5b">
           <block type="html">
@@ -570,13 +629,21 @@
             </value>
           </block>
         </category>
-        <category name="variables" colour="#A65C81" custom="VARIABLE"></category>
-        <category name="functions" colour="#9A5CA6" custom="PROCEDURE"></category>
+        <category
+          name="variables"
+          colour="#A65C81"
+          custom="VARIABLE"
+        ></category>
+        <category
+          name="functions"
+          colour="#9A5CA6"
+          custom="PROCEDURE"
+        ></category>
       </category>
     </xml>
 
     <script>
-      if (typeof(Msg) == "object" && Msg.categories) {
+      if (typeof Msg == "object" && Msg.categories) {
         for (category in Msg.categories) {
           elements = document.getElementsByName(category);
           if (elements.length == 0) {
@@ -587,7 +654,11 @@
       }
     </script>
 
-    <xml xmlns="https://developers.google.com/blockly/xml" id="workspaceBlocks" style="display: none">
+    <xml
+      xmlns="https://developers.google.com/blockly/xml"
+      id="workspaceBlocks"
+      style="display: none"
+    >
       <block type="html" id="9oFDR`IIn6rS=HtBc1=;" x="-137" y="13">
         <statement name="content">
           <block type="head" id="GcN`f+0y~dua46CQmnr|">
@@ -617,17 +688,25 @@
                     <field name="NAME">h1</field>
                     <statement name="content">
                       <block type="plaintext" id="y?9?JkK^68`6RoX9M|HK">
-                        <field name="content">Create web pages with Blockly</field>
+                        <field name="content"
+                          >Create web pages with Blockly</field
+                        >
                       </block>
                     </statement>
                     <next>
                       <block type="paragraph" id="`7GrdZ)-sMI$8U]X:FT{">
                         <statement name="content">
                           <block type="plaintext" id="t$+$tH1}{rq41re|0c*(">
-                            <field name="content">Just combine the building blocks on the left side</field>
+                            <field name="content"
+                              >Just combine the building blocks on the left
+                              side</field
+                            >
                             <next>
                               <block type="plaintext" id="C]F#kLxHh]~_/W9dI[xM">
-                                <field name="content">and watch this page change accordingly.</field>
+                                <field name="content"
+                                  >and watch this page change
+                                  accordingly.</field
+                                >
                               </block>
                             </next>
                           </block>
@@ -636,10 +715,19 @@
                           <block type="paragraph" id="dl,67cz~ME2iY-0u@WN2">
                             <statement name="content">
                               <block type="plaintext" id="2p+0sn,p3Ir+8[A+ub@+">
-                                <field name="content">On the bottom, you can also see the HTML</field>
+                                <field name="content"
+                                  >On the bottom, you can also see the
+                                  HTML</field
+                                >
                                 <next>
-                                  <block type="plaintext" id="~q?}Zyz_#Z/)z{$C5:Eg">
-                                    <field name="content">source code of the page you are creating.</field>
+                                  <block
+                                    type="plaintext"
+                                    id="~q?}Zyz_#Z/)z{$C5:Eg"
+                                  >
+                                    <field name="content"
+                                      >source code of the page you are
+                                      creating.</field
+                                    >
                                   </block>
                                 </next>
                               </block>
@@ -659,42 +747,40 @@
 
     <script>
       var toolbox = document.getElementById("toolbox");
-      var blocklyArea = document.getElementById('blocklyArea');
+      var blocklyArea = document.getElementById("blocklyArea");
 
       var options = {
-        toolbox : toolbox,
-        collapse : true,
-//        comments : false,
-//        disable : false,
-        maxBlocks : Infinity,
-        trashcan : true,
-//        horizontalLayout : false,
-          //        toolboxPosition : 'start',
+        toolbox: toolbox,
+        collapse: true,
+        //        comments : false,
+        //        disable : false,
+        maxBlocks: Infinity,
+        trashcan: true,
+        //        horizontalLayout : false,
+        //        toolboxPosition : 'start',
         tooltips: true,
-        css : true,
-        media : 'https://blockly-demo.appspot.com/static/media/',
-        rtl : false,
-        scrollbars : true,
-        sounds : true,
-        oneBasedIndex : true
+        css: true,
+        media: "https://blockly-demo.appspot.com/static/media/",
+        rtl: false,
+        scrollbars: true,
+        sounds: true,
+        oneBasedIndex: true,
       };
 
       var workspace = Blockly.inject(blocklyArea, options);
 
-      var xml_text = localStorage.getItem('blockly-html-code');
+      var xml_text = localStorage.getItem("blockly-html-code");
       if (xml_text) {
         var xml = Blockly.Xml.textToDom(xml_text);
         Blockly.Xml.domToWorkspace(xml, workspace);
-      }
-      else {
+      } else {
         /* === For backwards compability. Remove soon ===*/
-        var xml_text = localStorage.getItem('code');
+        var xml_text = localStorage.getItem("code");
         if (xml_text) {
           var xml = Blockly.Xml.textToDom(xml_text);
           Blockly.Xml.domToWorkspace(xml, workspace);
-        }
+        } else {
         /* === ^^^ === */
-        else {
           var workspaceBlocks = document.getElementById("workspaceBlocks");
           Blockly.Xml.domToWorkspace(workspaceBlocks, workspace);
         }
@@ -704,29 +790,35 @@
 
       function myUpdateFunction(event) {
         var code = HtmlGenerator.workspaceToCode(workspace);
-        document.getElementById('sourcecode').innerText = code;
-        document.getElementById('website').src = "data:text/html;charset=utf-8," + encodeURIComponent(code);
+        document.getElementById("sourcecode").innerText = code;
+        document.getElementById("website").src =
+          "data:text/html;charset=utf-8," + encodeURIComponent(code);
 
         // Save Blocks
         var xml = Blockly.Xml.workspaceToDom(workspace);
         var xml_text = Blockly.Xml.domToText(xml);
-        localStorage.setItem('blockly-html-code', xml_text);
+        localStorage.setItem("blockly-html-code", xml_text);
       }
       workspace.addChangeListener(myUpdateFunction);
 
       function saveWorkspaceToDownload() {
         var xml = Blockly.Xml.workspaceToDom(workspace);
         var xml_text = Blockly.Xml.domToText(xml);
-        newWindow = window.open("data:application/octet-stream," + encodeURIComponent(xml_text), 'webseite.blockly.xml');
+        newWindow = window.open(
+          "data:application/octet-stream," + encodeURIComponent(xml_text),
+          "webseite.blockly.xml"
+        );
       }
       document.getElementById("saveButton").onclick = saveWorkspaceToDownload;
 
       function saveHtmlToDownload() {
         var code = HtmlGenerator.workspaceToCode(workspace);
-        newWindow = window.open("data:application/octet-stream," + encodeURIComponent(code), 'webseite.html');
+        newWindow = window.open(
+          "data:application/octet-stream," + encodeURIComponent(code),
+          "webseite.html"
+        );
       }
       document.getElementById("exportButton").onclick = saveHtmlToDownload;
-
 
       function loadWorkspaceFromUpload(e) {
         var file = e.target.files[0];
@@ -734,7 +826,7 @@
           return;
         }
         var reader = new FileReader();
-        reader.onload = function(e) {
+        reader.onload = function (e) {
           var xml_text = e.target.result;
           if (xml_text) {
             var xml = Blockly.Xml.textToDom(xml_text);
@@ -743,8 +835,9 @@
         };
         reader.readAsText(file);
       }
-      document.getElementById('fileButton').addEventListener('change', loadWorkspaceFromUpload, false);
-
-     </script>
+      document
+        .getElementById("fileButton")
+        .addEventListener("change", loadWorkspaceFromUpload, false);
+    </script>
   </body>
 </html>
