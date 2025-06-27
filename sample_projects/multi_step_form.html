@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sign Up</title>
+</head>
+<body>
+  <form id="signup-form">
+    <fieldset>
+      <legend>Step 1: Account</legend>
+      <label>Email: <input type="email" required></label>
+      <label>Password: <input type="password" minlength="8" required></label>
+    </fieldset>
+    
+    <fieldset class="hidden">
+      <legend>Step 2: Profile</legend>
+      <label>Name: <input type="text" required></label>
+      <!-- More fields -->
+    </fieldset>
+    
+    <button type="button" id="next-btn">Next</button>
+    <button type="submit" class="hidden">Complete</button>
+  </form>
+</body>
+</html>

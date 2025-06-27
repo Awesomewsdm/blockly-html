@@ -498,4 +498,32 @@
   </category>
   <category name="Variables" colour="#A65C81" custom="VARIABLE"></category>
   <category name="Functions" colour="#9A5CA6" custom="PROCEDURE"></category>
+  <category name="CSS" colour="#5b6da5">
+  <!-- Basic Selectors -->
+  <block type="css_rule">
+    <field name="SELECTOR">.my-class</field>
+    <statement name="DECLARATIONS">
+      <block type="css_declaration">
+        <field name="PROPERTY">color</field>
+        <field name="VALUE">red</field>
+      </block>
+    </statement>
+  </block>
+  
+  <!-- Common Properties -->
+  <block type="css_declaration">
+    <field name="PROPERTY">background-color</field>
+    <field name="VALUE">#f0f0f0</field>
+  </block>
+  <block type="css_declaration">
+    <field name="PROPERTY">font-size</field>
+    <field name="VALUE">16px</field>
+  </block>
+  
+  <!-- Layout -->
+  <block type="css_declaration">
+    <field name="PROPERTY">display</field>
+    <field name="VALUE">flex</field>
+  </block>
+</category>
 </xml>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Product Showcase</title>
+  <style>
+    .product-grid { 
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .product-card {
+      border: 1px solid #ddd;
+      padding: 15px;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Featured Products</h1>
+    <div class="product-grid">
+      <!-- Product 1 -->
+      <article class="product-card" aria-labelledby="product1">
+        <h2 id="product1">Wireless Headphones</h2>
+        <img src="https://firebasestorage.googleapis.com/v0/b/mytalentradio-dev.firebasestorage.app/o/podcasts%2Fcover_image%2Fcomedy-podcast.png?alt=media&token=dc194423-d9a8-40dd-a0af-4e58481afb92" alt="Wireless Headphones Product Image">
+        <p>Premium sound quality with 30hr battery life</p>
+        <button>Add to Cart</button>
+      </article>
+      <!-- Product 2 (User must add) -->
+    </div>
+  </main>
+</body>
+</html>

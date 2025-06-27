@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Photo Gallery</title>
+  <style>
+    .gallery { 
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
+    figure:focus-within {
+      outline: 2px solid blue;
+    }
+  </style>
+</head>
+<body>
+  <h1>Travel Photos</h1>
+  <div class="gallery" role="grid">
+    <figure role="gridcell" tabindex="0">
+      <img src="https://firebasestorage.googleapis.com/v0/b/mytalentradio-dev.firebasestorage.app/o/podcasts%2Fcover_image%2Fcomedy-podcast.png?alt=media&token=dc194423-d9a8-40dd-a0af-4e58481afb92" 
+           alt="Mountain landscape at sunset"
+           loading="lazy">
+      <figcaption>Alpine Sunset</figcaption>
+    </figure>
+    <!-- User adds 2 more items -->
+  </div>
+</body>
+</html>

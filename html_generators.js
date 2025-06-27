@@ -148,7 +148,11 @@ HtmlGenerator['span'] = function(block) {
 HtmlGenerator['image'] = function(block) {
   var text_image = block.getFieldValue('IMAGE');
   var text_alt = block.getFieldValue('ALT');
-  var code = '<img src="' +  text_image + '" alt="' + text_alt + '">\n';
+  var text_height = block.getFieldValue('HEIGHT');
+  var text_width = block.getFieldValue('WIDTH');
+  var heightAttr = text_height ? ' height="' + text_height + '"' : '';
+  var widthAttr = text_width ? ' width="' + text_width + '"' : '';
+  var code = '<img src="' + text_image + '" alt="' + text_alt + '"' + heightAttr + widthAttr + '>\n';
   return code;
 };
 

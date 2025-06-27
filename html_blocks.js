@@ -29,7 +29,7 @@ var htmlBlocks =
   "colour": 0,
   "tooltip": "",
   "helpUrl": "http://www.w3schools.com/tags/tag_html.asp"
-},
+},  
 {
   "type": "html",
   "message0": "document %1 %2",
@@ -1021,3 +1021,23 @@ for (var iBlock in htmlBlocks) {
   }
   makeBlock(htmlBlocks[iBlock]);
 }
+
+Blockly.Blocks['image'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("image")
+        .appendField("src")
+        .appendField(new Blockly.FieldTextInput("URL"), "IMAGE")
+        .appendField("alt")
+        .appendField(new Blockly.FieldTextInput("alternative text"), "ALT")
+        .appendField("width")
+        .appendField(new Blockly.FieldTextInput(""), "WIDTH")
+        .appendField("height")
+        .appendField(new Blockly.FieldTextInput(""), "HEIGHT");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(120);
+    this.setTooltip("Image with optional width and height");
+    this.setHelpUrl("");
+  }
+};
